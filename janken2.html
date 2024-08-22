@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>じゃんけんゲーム</h1>
+
+    <p>相手の手</p>
+    <img width="100px" class="enemyImg" style="display:none;" src="./images/janken_gu.png" id='egu'></img>
+    <img width="100px" class="enemyImg" style="display:none;" src="./images/janken_choki.png" id='echo'></img>
+    <img width="100px" class="enemyImg" style="display:none;" src="./images/janken_pa.png" id='epa'></img>
+
+
+
+    <p>自分の手を選んでね</p>
+    <img width="100px" onclick="startjanken('gu')" src="./images/janken_gu.png"></img>
+    <img width="100px" onclick="startjanken('choki')" src="./images/janken_choki.png"></img>
+    <img width="100px" onclick="startjanken('pa')" src="./images/janken_pa.png"></img>
+    <p id="katimake">結果:</p>
+    <p id="winpoint"></p>
+    <p id="losepoint"></p>
+    <script>
+        function refreshdisplay() {
+
+
+            const enemyImages = document.getElementsByClassName("enemyImg")
+            for (let i = 0; i < enemyImages.length; i++) {
+                enemyImages[i].style.display = "none"
+                katimake.innerHTML = "結果:"
+                console.log("勝ちポイントは" + w, "負けポイントは" + l)
+            }
+        }
+        function getresult(yourchoice,random){
+            if (yourchoice == 'gu' && random == 0) {
+                return "あいこ"
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'gu' && random == 1) {
+                return"勝ち"
+                w += 1
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'gu' && random == 2) {
+                return "負け"
+                l += 1
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'choki' && random == 0) {
+                return "負け"
+                l += 1
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'choki' && random == 1) {
+                return "あいこ"
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'choki' && random == 2) {
+                return"勝ち"
+                w += 1
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'pa' && random == 0) {
+                return"勝ち"
+                w += 1
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'pa' && random == 1) {
+                return "負け"
+                l += 1
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+            if (yourchoice == 'pa' && random == 2) {
+                return "あいこ"
+                winpoint.innerHTML = "勝ちポイントは" + w
+                losepoint.innerHTML = "負けポイントは" + l
+            }
+        }
+        let w = 0
+        let l = 0
+        function startjanken(yourchoice) {
+            refreshdisplay()
+            
+
+            const choices = ["egu", "echo", "epa"]
+            const random = Math.floor(Math.random() * choices.length)
+            let enemychoice = choices[random]
+            console.log(random)
+            const imgTag = document.getElementById(enemychoice)
+            imgTag.style.display = "block"
+
+            const result = getresult(yourchoice,random)
+            katimake.textContent = result
+        }
+
+    </script>
+</body>
+
+</html>
