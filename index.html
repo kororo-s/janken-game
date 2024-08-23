@@ -25,6 +25,8 @@
     <p id="winpoint"></p>
     <p id="losepoint"></p>
     <script>
+                let w = 0
+                let l = 0
         function refreshdisplay() {
 
 
@@ -37,59 +39,67 @@
         }
         function getresult(yourchoice,random){
             if (yourchoice == 'gu' && random == 0) {
-                return "あいこ"
+               
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                 return "あいこ"
             }
             if (yourchoice == 'gu' && random == 1) {
-                return"勝ち"
+               
                 w += 1
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                 return"勝ち"
             }
             if (yourchoice == 'gu' && random == 2) {
-                return "負け"
+            
                 l += 1
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                    return "負け"
             }
             if (yourchoice == 'choki' && random == 0) {
-                return "負け"
+               
                 l += 1
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                 return "負け"
             }
             if (yourchoice == 'choki' && random == 1) {
-                return "あいこ"
+               
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                 return "あいこ"
             }
             if (yourchoice == 'choki' && random == 2) {
-                return"勝ち"
+
                 w += 1
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                                return"勝ち"
             }
             if (yourchoice == 'pa' && random == 0) {
-                return"勝ち"
+              
                 w += 1
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                  return"勝ち"
             }
             if (yourchoice == 'pa' && random == 1) {
-                return "負け"
+                
                 l += 1
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                return "負け"
             }
             if (yourchoice == 'pa' && random == 2) {
-                return "あいこ"
+                
                 winpoint.innerHTML = "勝ちポイントは" + w
                 losepoint.innerHTML = "負けポイントは" + l
+                return "あいこ"
             }
         }
-        let w = 0
-        let l = 0
+
         function startjanken(yourchoice) {
             refreshdisplay()
             
